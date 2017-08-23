@@ -6,6 +6,7 @@
 package espol.edu.ec.Proyecto;
 
 import espol.edu.ec.Model.Bacon;
+import espol.edu.ec.View.BaconView;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,10 +20,14 @@ import javafx.stage.Stage;
  * @author FranciscoGuillermoVi
  */
 public class Main extends Application {
+    BaconView bw;
     
     @Override
     public void start(Stage primaryStage) {
-        
+        bw=new BaconView();
+        Scene scene = new Scene(bw.getRoot(), 500, 250);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     /**
@@ -32,7 +37,7 @@ public class Main extends Application {
         Bacon grafo= new Bacon();
         grafo.fillGrafo();
         System.out.println("Ruta de bacon sirviendo");
-        System.out.println(grafo.baconsNumber());
+        System.out.println(grafo.baconsNumber("1","3823"));
         launch(args);
     }
     

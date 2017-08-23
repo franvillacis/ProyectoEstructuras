@@ -44,8 +44,9 @@ public class Bacon<E> {
 
     }
     
-    public LinkedList<E> baconsNumber(){
-        LinkedList<E> rutaBacon= grafo.caminoMasCorto("1", "3823");
+    public LinkedList<E> baconsNumber(String idActor, String idActor2){
+
+        LinkedList<E> rutaBacon= grafo.caminoMasCorto(idActor,idActor2);
         return rutaBacon;
     }
     public GrafoNDLAD getGrafo() {
