@@ -31,7 +31,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         Bacon grafo= new Bacon();
         grafo.fillGrafo();
-        System.out.println("Ruta de bacon");
+        System.out.println("Ruta de bacon sirviendo");
         System.out.println(grafo.baconsNumber());
         launch(args);
     }
