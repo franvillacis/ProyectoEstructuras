@@ -11,23 +11,21 @@ package espol.edu.ec.Model;
  */
 public class Arco <E>{
     
-    private E peso;
+    private int peso;
     private Vertice<E> origen;
     private Vertice<E> destino;
-    private int numeroBacon;
     
-    public Arco(E peso,Vertice<E> origen, Vertice<E> destino){
+    public Arco(int peso,Vertice<E> origen, Vertice<E> destino){
         this.peso=peso;
         this.origen=origen;
         this.destino=destino;
-        this.numeroBacon=1;
     }
 
-    public E getPeso() {
+    public int getPeso() {
         return peso;
     }
 
-    public void setPeso(E peso) {
+    public void setPeso(int peso) {
         this.peso = peso;
     }
 
@@ -46,17 +44,10 @@ public class Arco <E>{
     public void setDestino(Vertice<E> destino) {
         this.destino = destino;
     }
-     public int getNumeroBacon() {
-        return numeroBacon;
-    }
-
-    public void setNumeroBacon(int numeroBacon) {
-        this.numeroBacon = numeroBacon;
-    }
 
     @Override
     public boolean equals(Object obj) {
-    Arco arco= (Arco) obj;
+    Arco<E> arco= (Arco) obj;
     return (this.origen.equals(arco.origen)&&this.destino.equals(arco.destino));
     
     }

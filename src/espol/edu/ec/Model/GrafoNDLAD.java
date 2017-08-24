@@ -11,31 +11,29 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
-import javafx.scene.layout.Priority;
 
 /**
  *
  * @author FranciscoGuillermoVi
  */
 public class GrafoNDLAD<E> {
-    private List<Vertice> vertices;
+    public List<Vertice> vertices;
     
     public GrafoNDLAD(){
-        this.vertices= new LinkedList();
+        this.vertices= new LinkedList<>();
     }
-    
-    public boolean agregarVertice(E element){
-        Vertice<E> v= new Vertice<>(element);
-        if(vertices.contains(v)){
-            return false;
-        }
-        else{
   
-            return vertices.add(v);
-       
-        } 
+    public boolean agregarVertice(E element) {
+        if (element != null) {
+            Vertice<E> v = new Vertice<>(element);
+            if (!vertices.contains(v)) {
+                vertices.add(v);
+                return true;
+            }
+        }
+        return false;
     }
-    public boolean agregarArco(E peso,E origen, E destino){
+    public boolean agregarArco(int peso,E origen, E destino){
         Vertice<E> vo=getVertice(origen);
         Vertice<E> vd=getVertice(destino);
         if(vo!=null && vd!=null){
@@ -57,6 +55,21 @@ public class GrafoNDLAD<E> {
             }
         }
         return null;
+    }
+    
+    public int getPeso(E origen, E destino) {
+        Vertice<E> vOrigen = new Vertice<>(origen);
+        Vertice<E> vDestino = new Vertice<>(destino);
+        if (vOrigen != null && vDestino != null) {
+            for (Vertice<E> v: vertices) {
+                for (Arco<E> a: v.getArcos()) {
+                    if (a.getOrigen().equals(vOrigen) && a.getDestino().equals(vDestino)) {
+                        return a.getPeso();
+                    }
+                }
+            }
+        }
+        return 0;
     }
 
     public LinkedList<E> bfs(E inicio){
@@ -126,9 +139,9 @@ public class GrafoNDLAD<E> {
               
               for(Arco arco:verticeRef.getArcos()){
                   Vertice<E> verticeDestino=arco.getDestino();
-                  if((!verticeDestino.getEstado())&&(verticeDestino.getDistancia()>verticeRef.getDistancia()+arco.getNumeroBacon())){
+                  if((!verticeDestino.getEstado())&&(verticeDestino.getDistancia()>verticeRef.getDistancia()+1)){
                       
-                      verticeDestino.setDistancia(verticeRef.getDistancia()+arco.getNumeroBacon());
+                      verticeDestino.setDistancia(verticeRef.getDistancia()+1);
                     
                       verticeDestino.setPrevious(verticeRef);
                       cola.offer(verticeDestino);
@@ -240,5 +253,15 @@ public class GrafoNDLAD<E> {
         s+="]";
         return s;
     }
+
+    public List<Vertice> getVertices() {
+        return vertices;
+    }
+
+    public void setVertices(List<Vertice> vertices) {
+        this.vertices = vertices;
+    }
+    
+    
 
 }

@@ -13,8 +13,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +31,8 @@ public class Util {
         while(sc.hasNext()){
             String[] linea = sc.nextLine().split("[|]");
             mapa.put(linea[0], linea[1]);           
-        }       
+        } 
+        sc.close();
         return mapa;  
     }
     
@@ -55,7 +54,7 @@ public class Util {
                 mapa.get(linea[0]).addLast(linea[1]);
             }
         }
-            
+        sc.close();
         return mapa;
     
     }

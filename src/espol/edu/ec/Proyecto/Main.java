@@ -34,10 +34,12 @@ public class Main extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        /*
         Bacon grafo= new Bacon();
         grafo.fillGrafo();
         System.out.println("Ruta de bacon sirviendo");
-        System.out.println(grafo.baconsNumber("1","3823"));
+        System.out.println(grafo.baconsNumber("3590"));
+*/
         launch(args);
     }
     
