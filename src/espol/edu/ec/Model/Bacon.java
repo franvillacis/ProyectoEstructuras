@@ -53,7 +53,7 @@ public class Bacon<E> {
     }
     
     public LinkedList<String> baconsNumber(String idActor2){
-        LinkedList<String> lista= grafo.caminoMasCorto("1",idActor2);
+        LinkedList<String> lista= grafo.caminoMasCorto(getIdActor("Kevin Bacon"),idActor2);
         LinkedList<String> rutaBacon= new LinkedList();
         //El número de Bacon de Lisa Kudrow es 3.
         

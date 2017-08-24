@@ -70,6 +70,7 @@ public class BaconView {
         
         this.root = new VBox(); 
         this.root.getChildren().addAll(this.titulo,this.contenedor_search, this.contenedor_result);
+        this.root.setAlignment(Pos.CENTER);
         this.root.setSpacing(20);
         
     }
